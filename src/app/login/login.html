@@ -1,0 +1,37 @@
+<p>Count: {{ count }}</p>
+<button class="border border-black px-4 py-2" (click)="increment()">Increment</button>
+<br />
+<button class="border border-black px-4 py-2" (click)="decrement()">Decrement</button>
+<br>
+<button class="border border-black px-4 py-2" (click)="reset()">Reset</button>
+<p>{{ name() }}</p>
+<br />
+<button class="border border-black px-4 py-2" (click)="toggleName()">Update Name</button>
+<br />
+<button class="border border-black px-4 py-2" [disabled]="isDisabled()">
+  Toggle Online Status
+</button>
+<h1>This is my {{ name() }}</h1>
+<input
+  (input)="updateUsername($event.target.value)"
+  placeholder="Enter username"
+  class="border border-gray-300 px-2 py-1 mt-2"
+/>
+<button class="border border-black px-4 py-2 mt-2" (click)="logEvents($event)">
+  Event
+</button>
+<br>
+<button class="border border-black px-4 py-2 mt-2" (click)="toggleBorderColor($event)">
+  Change Border Color
+</button>
+
+<h2>Parent Component</h2>
+
+<app-logout
+  [inputMessage]="parentMessage"
+  (outputMessage)="receiveReply($event)"
+  [someData]="parentData">
+</app-logout>
+
+<p>Reply from child: {{ childReply }}</p>
+
